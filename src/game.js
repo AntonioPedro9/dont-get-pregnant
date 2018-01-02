@@ -38,7 +38,8 @@ function draw() {
         spermatozoom.draw = function() {
             fill(255);
             noStroke();
-            ellipse(0, 0, random(h/16, h/16 + 16), random(h/32, h/32 + 8));
+            ellipse(0, 0, random(h/16, h/16 + 8), random(h/32, h/32 + 8));
+            ellipse(-h/16, 0, random(h/8, h/8 + 8), random(h/512, h/512 + 8))
         }
         sperm.add(spermatozoom);
     }
@@ -69,7 +70,7 @@ function draw() {
     // Game over function:
     if (sperm.overlap(ovule)) {
 
-        alert("GAME OVER\n\nRESTART?");
+        alert("GAME OVER");
         location.reload();
 
         removeSprite(ovule);
