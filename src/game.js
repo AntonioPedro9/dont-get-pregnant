@@ -1,6 +1,6 @@
 var w = window.innerWidth;
 var h = window.innerHeight;
-var ovule, sperm;
+var ovule, sperm, score = 0;
 
 function setup() {
     createCanvas(w, h);
@@ -66,7 +66,12 @@ function draw() {
 
     // Displaying score:
     if (frameCount % 60 == 0) {
-        document.getElementById("score").innerHTML = Math.round(frameCount / 60);
+
+    	setInterval(
+    		score = score + 1
+    	,1000);
+
+        document.getElementById("score").innerHTML = score;
     }
 
     // Game over & Restart function:
@@ -76,6 +81,8 @@ function draw() {
     	sperm.removeSprites();
 
     	alert("GAME OVER");
+
+    	score = -1;
 
     	setup()
     }
