@@ -20,15 +20,17 @@
         <script src="src/p5.play.js"></script>
         <script src="src/game.js"></script>
 
+        <!-- Aperial Design -->
+        <link rel="stylesheet" href="https://antoniopedro9.github.io/aperial/aperial.css">
+
         <style>
             body {
             	font-family: Arial;
                 overflow: hidden;
                 margin: 0px;
             }
-            #score {
+            /*#score {
                 font-size: 8vh;
-                color: #FFF;
 
                 -webkit-user-select: none;
                     -moz-user-select: none;
@@ -37,12 +39,25 @@
 
                 position: absolute;
                 margin: 16px;
+            }*/
+            #gameOver {
+                display: none;
+
+                position: absolute;
+                top: calc(50vh - 114px);
+                left: calc(50vw - 120px);
             }
         </style>
     </head>
 
-    <body>
-        <h1 id="score">0</h1>
+    <body class="theme-pink">
+        <!-- <h1 id="score">0</h1> -->
+
+        <div id="gameOver" class="card">
+            <h1>GAME OVER</h1>
+
+            <button id="restart" class="theme-purple">RESTART</button>
+        </div>
     </body>
 </html>
 
