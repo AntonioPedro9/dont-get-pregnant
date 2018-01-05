@@ -1,6 +1,6 @@
 var w = window.innerWidth;
 var h = window.innerHeight;
-var ovule, sperm, score = 0;
+var ovule, sperm;
 
 function setup() {
     createCanvas(w, h);
@@ -67,24 +67,21 @@ function draw() {
     // Displaying score:
     if (frameCount % 60 == 0) {
 
-    	setInterval(
-    		score = score + 1
-    	,1000);
-
-        document.getElementById("score").innerHTML = score;
     }
 
     // Game over & Restart function:
     if (sperm.overlap(ovule)) {
 
+    	document.getElementById("gameOver").style.display = "block";
+
     	ovule.remove();
-    	sperm.removeSprites();
 
-    	alert("GAME OVER");
+    	document.getElementById("restart").onclick = function() {
+    		sperm.removeSprites();
+    		setup();
 
-    	score = 0;
-
-    	setup()
+    		document.getElementById("gameOver").style.display = "none";
+    	}
     }
 
     drawSprites();
