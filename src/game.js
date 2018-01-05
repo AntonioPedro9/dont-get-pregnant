@@ -82,7 +82,7 @@ function draw() {
 
     	alert("GAME OVER");
 
-    	score = -1;
+    	score = 0;
 
     	setup()
     }
