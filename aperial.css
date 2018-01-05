@@ -1,0 +1,427 @@
+@charset "UTF-8";
+
+/**
+ * Made by Antônio Pedro Rodrigues Santos
+ * All Rights Reserved
+ **/
+
+body {
+	font-family: Arial;
+	font-size: 16px;
+	text-align: center;
+
+	color: rgb(64, 64, 64);
+	background-color: #F1F1F1;
+	
+	margin: 0px;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 8px;
+}
+p {
+	text-align: justify;
+	margin: 16px;
+}
+a {
+	text-decoration: none;
+	color: currentColor;
+	cursor: pointer;
+}
+label {
+	padding: 8px 8px 8px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+header {
+	font-size: 1.6em;
+
+	grid-area: header;
+
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+
+	padding: 8px;
+}
+nav {
+	font-size: 1.2em;
+
+	text-align: left;
+
+	grid-area: nav;
+
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.24);
+
+	padding: 8px 0px;
+}
+.grid nav a {
+    display: block;
+}
+@media screen and (max-width: 736px) {
+    nav {
+      	padding: 0px;
+    }
+    .grid nav a {
+        display: inline-block;
+    }      
+}
+nav a {
+	font-weight: bold;
+	padding: 8px 16px;
+	margin: 0px;
+}
+content {
+	display: inline-block;
+	
+	grid-area: content;
+
+	padding: 8px;
+}
+.card {
+	display: inline-block;
+
+	color: #444;
+	background-color: #FFF;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+
+	padding: 8px;
+	margin: 8px;
+}
+.ghost-card {
+	display: inline-block;
+
+	padding: 8px;
+	margin: 8px;
+}
+footer {
+	grid-area: footer;
+
+	color: #FFF;
+	background-color: #222;
+	box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.24);
+
+	padding: 8px;
+}
+ul {
+	font-weight: bold;
+	text-align: left;
+	list-style: none;
+
+	padding: 8px 0px;
+	margin: -8px;
+}
+li {
+	-webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+            -o-transition: all 0.2s;
+                transition: all 0.2s;
+
+	padding: 8px 16px;
+}
+table {
+	display: inline-block;
+
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+	border-radius: 2px;
+	border-collapse: collapse;
+
+	padding: -8px;
+	margin: 8px;
+}
+th, td {
+	border: 1px solid #888;
+	padding: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+button, input[type="submit"] {
+	font-size: 14px;
+	font-weight: bold;
+
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+	border: none;
+	border-radius: 2px;
+
+	cursor: pointer;
+	user-select: none;
+	-webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+            -o-transition: all 0.2s;
+                transition: all 0.2s;
+	outline: none;
+
+	min-width: 56px;
+	height: 36px;
+	padding: 0px 16px;
+	margin: 8px;
+}
+button:active, input[type="submit"]:active {
+	-webkit-transform: scale(0.96);
+        -moz-transform: scale(0.96);
+            -o-transform: scale(0.96);
+                transform: scale(0.96);
+	box-shadow: none;
+}
+.fab {
+	font-size: 24px;
+	font-weight: normal;
+
+	border-radius: 50%;
+
+	width: 56px;
+	height: 56px;
+}
+form {
+	font-weight: bold;
+}
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+	font-size: 16px;
+	font-weight: bold;
+
+	color: currentColor;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid currentColor;
+	border-radius: 0px;
+
+	-webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+            -o-transition: all 0.2s;
+                transition: all 0.2s;
+	outline: none;
+
+	padding: 4px 0px;
+	margin: 8px;
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+	border-bottom: 2px solid currentColor;
+}
+::-webkit-input-placeholder {
+   color: currentColor;
+   opacity: 0.8;
+}
+input[type="checkbox"], input[type="radio"] {
+	box-shadow: none;
+
+	cursor: pointer;
+
+	width: 16px;
+	height: 16px;
+	margin: 8px 8px 8px 0px;
+}
+input[type="file"] {
+	font-size: 0px;
+	font-weight: bold;
+	text: none;
+
+	cursor: pointer;
+	-webkit-user-select: none;
+        -moz-user-select: none;
+            -o-user-select: none;
+                user-select: none;
+
+	padding: 0px;
+	margin: 8px;
+}
+input[type="file"]::-webkit-file-upload-button {
+	font-size: 16px;
+	font-weight: bold;
+
+	color: #444;
+	background-color: #FFF;
+	border: none;
+	border-radius: 2px;
+
+	cursor: pointer;
+	-webkit-user-select: none;
+        -moz-user-select: none;
+            -o-user-select: none;
+                user-select: none;
+	-webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+            -o-transition: all 0.2s;
+                transition: all 0.2s;
+	outline: none;
+
+	min-width: 64px;
+	height: 36px;
+	padding: 0px 16px;
+	margin: 0px;
+}
+input[type="file"]::-webkit-file-upload-button:hover {
+	background-color: #CCC;
+}
+input[type="file"]::-webkit-file-upload-button:active {
+	-webkit-transform: scale(0.96);
+        -moz-transform: scale(0.96);
+            -o-transform: scale(0.96);
+                transform: scale(0.96);
+}
+input[type="range"] {
+	cursor: pointer;
+	
+	width: auto;
+	height: 32px;
+	margin: 8px;
+}
+img {
+	vertical-align: middle;
+}
+.btn {
+	cursor: pointer;
+	-webkit-user-select: none;
+        -moz-user-select: none;
+            -o-user-select: none;
+                user-select: none;
+	-webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+            -o-transition: all 0.2s;
+                transition: all 0.2s;
+}
+.btn:active {
+	-webkit-transform: scale(0.92);
+        -moz-transform: scale(0.92);
+            -o-transform: scale(0.92);
+                transform: scale(0.92);
+}
+audio {
+	border-radius: 2px; 
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+	margin: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+.theme-dark {
+	color: #FFF;
+	background-color: rgb(32, 32, 32);
+}
+.theme-light {
+	color: #444;
+	background-color: rgb(255, 255, 255);
+}
+.theme-teal {
+	color: #FFF;
+	background-color: rgb(0, 150, 136);
+}
+.theme-lime {
+	color: #444;
+	background-color: rgb(205, 220, 57);
+}
+.theme-blue {
+	color: #FFF;
+	background-color: rgb(33, 150, 243);
+}
+.theme-cyan {
+	color: #444;
+	background-color: rgb(24, 255, 255);
+}
+.theme-orange {
+	color: #FFF;
+	background-color: rgb(255, 87, 34);
+}
+.theme-yellow {
+	color: #444;
+	background-color: rgb(255, 235, 59);
+}
+.theme-purple {
+	color: #FFF;
+	background-color: rgb(103, 58, 183);
+}
+.theme-pink {
+	color: #FFF;
+	background-color: rgb(233, 30, 99);
+}
+
+
+
+
+
+
+
+
+
+
+.text-dark {
+	color: rgb(64, 64, 64);
+}
+.text-light {
+	color: rgb(255, 255, 255);
+}
+.text-teal {
+	color: rgb(0, 150, 136);
+}
+.text-lime {
+	color: rgb(205, 220, 57);
+}
+.text-blue {
+	color: rgb(33, 150, 243);
+}
+.text-cyan {
+	color: rgb(24, 255, 255);
+}
+.text-orange {
+	color: rgb(255, 87, 34);
+}
+.text-yellow {
+	color: rgb(255, 235, 59);
+}
+.text-purple {
+	color: rgb(103, 58, 183);
+}
+.text-pink {
+	color: rgb(233, 30, 99);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+==============================
+==============================
+====                      ====
+====    [][][]  [][][]    ====
+====    []  []  []  []    ====
+====    [][][]  [][][]    ====
+====    []  []  []        ====
+====    []  []  []        ====
+====                      ====
+====      Copyright       ====
+==============================
+==============================
