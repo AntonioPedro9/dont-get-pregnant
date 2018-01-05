@@ -39,7 +39,9 @@ function draw() {
             fill(255);
             noStroke();
             ellipse(0, 0, random(h/16, h/16 + 8), random(h/32, h/32 + 8));
-            ellipse(-h/16, 0, random(h/8, h/8 + 8), random(h/512, h/512 + 8))
+
+            fill(255, 128);
+            ellipse(-h/16, 0, random(h/8, h/8 + 8), random(h/512, h/512 + 8));
         }
         sperm.add(spermatozoom);
     }
@@ -64,17 +66,18 @@ function draw() {
 
     // Displaying score:
     if (frameCount % 60 == 0) {
-        document.getElementById("score").innerHTML = Math.round(frameCount/60);
+        document.getElementById("score").innerHTML = Math.round(frameCount / 60);
     }
 
-    // Game over function:
+    // Game over & Restart function:
     if (sperm.overlap(ovule)) {
 
-        alert("GAME OVER");
-        location.reload();
+    	ovule.remove();
+    	sperm.removeSprites();
 
-        removeSprite(ovule);
-        removeSprite(spermatozoom);
+    	alert("GAME OVER");
+
+    	setup()
     }
 
     drawSprites();
