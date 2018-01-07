@@ -1,80 +1,88 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <title>Don't get Pregnant</title>
+var w = window.innerWidth;
+var h = window.innerHeight;
+var ovule, sperm;
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no"/>
+function setup() {
+    createCanvas(w, h);
 
-        <!-- Status bar  -->
-        <meta name="theme-color" content="#E26"/>
-        <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    // Ovule Object:
+    ovule = createSprite(w - h/8, h/2, h/8, h/8);
 
-        <!-- Icons  -->
-        <link rel="icon" href="icon.png"/>
-        <link rel="apple-touch-icon" href="icon.png"/>
+    ovule.draw = function() {
+        fill(255, 128);
+        stroke(255);
+        strokeWeight(h/64);
 
-        <!-- Scripts -->
-        <script src="js/p5.min.js"></script>
-        <script src="js/p5.play.js"></script>
-        <script src="js/game.js"></script>
+        ellipse(0, 0, random(h/8, h/8 + 8), random(h/8, h/8 + 8));
+        ellipse(0, 0, random(h/128, h/128 + 8), random(h/128, h/128 + 8));
+    }
 
-        <!-- Aperial Design -->
-        <link rel="stylesheet" href="aperial.css">
+    ovule.velocity.y = 0;
+    ovule.maxSpeed = 16;
 
-        <style>
-            body {
-            	font-family: Arial;
-                overflow: hidden;
-                margin: 0px;
-            }
-            /*#score {
-                font-size: 8vh;
+    // Sperm array:
+    sperm = new Group();
+}
 
-                -webkit-user-select: none;
-                    -moz-user-select: none;
-                        -o-user-select: none;
-                            user-select: none;
+function draw() {
+    background(233, 30, 99);
 
-                position: absolute;
-                margin: 16px;
-            }*/
-            #gameOver {
-                display: none;
+    // Adding spermatozoa in the sperm group and displaying it:
+    if (frameCount % 20 == 0) {
 
-                -webkit-user-select: none;
-                    -moz-user-select: none;
-                        -o-user-select: none;
-                            user-select: none;
+        // Spermatozoom Object:
+        var spermatozoom = createSprite(0, random(h), h/16, h/32);
+        spermatozoom.velocity.x = random(4, 6);
+        spermatozoom.life = 512;
 
-                position: absolute;
-                top: 20vh;
-                width: calc(100vw - 32px);
-            }
-        </style>
-    </head>
+        spermatozoom.draw = function() {
+            fill(255);
+            noStroke();
+            ellipse(0, 0, random(h/16, h/16 + 8), random(h/32, h/32 + 8));
 
-    <body class="theme-pink">
-        <!-- <h1 id="score">0</h1> -->
+            fill(255, 128);
+            ellipse(-h/16, 0, random(h/8, h/8 + 8), random(h/512, h/512 + 8));
+        }
+        sperm.add(spermatozoom);
+    }
 
-        <div id="gameOver" class="card">
-            <h1>GAME OVER</h1>
+    // Defining screen limits:
+    if (ovule.position.y >= h - h/16 - 8) {
+        ovule.position.y = h - h/16 - 8;
+        ovule.velocity.y = 0;
+    }
+    else if (ovule.position.y <= 0 + h/16 + 8) {
+        ovule.position.y = 0 + h/16 + 8;
+        ovule.velocity.y = 0;
+    }
 
-            <button id="restart" class="theme-purple">RESTART</button>
-        </div>
-    </body>
-</html>
+    // Adding gravity acceleration:
+    ovule.addSpeed(0.2, 90);
 
-<!--==============================
-    ==============================
-    ====                      ====
-    ====    [][][]  [][][]    ====
-    ====    []  []  []  []    ====
-    ====    [][][]  [][][]    ====
-    ====    []  []  []        ====
-    ====    []  []  []        ====
-    ====                      ====
-    ====      Copyright       ====
-    ==============================
-    ==============================-->
+    // Function to move the ovule:
+    if (mouseIsPressed || keyIsPressed) {
+        ovule.addSpeed(-0.8, 90);
+    }
+
+    // Displaying score:
+    if (frameCount % 60 == 0) {
+
+    }
+
+    // Game over & Restart function:
+    if (sperm.overlap(ovule)) {
+
+    	document.getElementById("gameOver").style = "display: block;";
+
+    	ovule.remove();
+
+    	document.getElementById("restart").onclick = function() {
+    		sperm.removeSprites();
+    		setup();
+
+    		document.getElementById("gameOver").style = "display: none;";
+    	}
+    }
+
+    drawSprites();
+}
