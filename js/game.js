@@ -72,7 +72,8 @@ function draw() {
     // Game over & Restart function:
     if (sperm.overlap(ovule)) {
 
-    	document.getElementById("gameOver").style = "display: block;";
+    	document.getElementById("gameOver").style =
+            "display: block; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24); border-radius: 2px;";
 
     	ovule.remove();
 
@@ -80,7 +81,8 @@ function draw() {
     		sperm.removeSprites();
     		setup();
 
-    		document.getElementById("gameOver").style = "display: none;";
+    		document.getElementById("gameOver").style = 
+                "display: none; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24); border-radius: 2px;";
     	}
     }
 
