@@ -64,11 +64,6 @@ function draw() {
         ovule.addSpeed(-0.8, 90);
     }
 
-    // Displaying score:
-    if (frameCount % 60 == 0) {
-
-    }
-
     // Game over & Restart function:
     if (sperm.overlap(ovule)) {
 
@@ -78,6 +73,7 @@ function draw() {
     	ovule.remove();
 
     	document.getElementById("restart").onclick = function() {
+
     		sperm.removeSprites();
     		setup();
 
