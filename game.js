@@ -6,15 +6,15 @@ function setup() {
     createCanvas(w, h);
 
     // Ovule Object:
-    ovule = createSprite(w - h/8, h/2, h/8, h/8);
+    ovule = createSprite(h/8, h/2, h/8, h/8);
 
     ovule.draw = function() {
         fill(255, 128);
         stroke(255);
         strokeWeight(h/64);
 
-        ellipse(0, 0, random(h/8, h/8 + 8), random(h/8, h/8 + 8));
-        ellipse(0, 0, random(h/128, h/128 + 8), random(h/128, h/128 + 8));
+        ellipse(0, 0, random(h/8, h/8 + 4), random(h/8, h/8 + 4));
+        ellipse(0, 0, random(h/128, h/128 + 4), random(h/128, h/128 + 4));
     }
 
     ovule.velocity.y = 0;
@@ -22,6 +22,26 @@ function setup() {
 
     // Sperm array:
     sperm = new Group();
+
+    score();
+}
+
+// Score functions:
+var points = 0;
+
+function score() {
+
+	var cron = setInterval(
+		function() {
+			points = points + 1;
+
+			document.getElementById("score").innerHTML = points;
+
+			if (sperm.overlap(ovule)) {
+				points = 0;
+				clearInterval(cron);
+			}
+		} ,1000)
 }
 
 function draw() {
@@ -31,28 +51,28 @@ function draw() {
     if (frameCount % 20 == 0) {
 
         // Spermatozoom Object:
-        var spermatozoom = createSprite(0, random(h), h/16, h/32);
-        spermatozoom.velocity.x = random(4, 8);
+        var spermatozoom = createSprite(w, random(h), h/16, h/32);
+        spermatozoom.velocity.x = random(-4, -8);
         spermatozoom.life = 512;
 
         spermatozoom.draw = function() {
             fill(255);
             noStroke();
-            ellipse(0, 0, random(h/16, h/16 + 8), random(h/32, h/32 + 8));
+            ellipse(0, 0, random(h/16, h/16 + 4), random(h/32, h/32 + 4));
 
             fill(255, 128);
-            ellipse(-h/16, 0, random(h/8, h/8 + 8), random(h/512, h/512 + 8));
+            ellipse(h/16, 0, random(h/8, h/8 + 4), random(h/512, h/512 + 4));
         }
         sperm.add(spermatozoom);
     }
 
     // Defining screen limits:
-    if (ovule.position.y >= h - h/16 - 8) {
-        ovule.position.y = h - h/16 - 8;
+    if (ovule.position.y >= h - h/16 - 4) {
+        ovule.position.y = h - h/16 - 4;
         ovule.velocity.y = 0;
     }
-    else if (ovule.position.y <= 0 + h/16 + 8) {
-        ovule.position.y = 0 + h/16 + 8;
+    else if (ovule.position.y <= 0 + h/16 + 4) {
+        ovule.position.y = 0 + h/16 + 4;
         ovule.velocity.y = 0;
     }
 
@@ -67,19 +87,11 @@ function draw() {
     // Game over & Restart function:
     if (sperm.overlap(ovule)) {
 
-    	document.getElementById("gameOver").style =
-            "display: block; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24); border-radius: 2px;";
+    	sperm.removeSprites();
 
-    	ovule.remove();
+    	alert("GAME OVER\nSCORE: " + points);
 
-    	document.getElementById("restart").onclick = function() {
-
-    		sperm.removeSprites();
-    		setup();
-
-    		document.getElementById("gameOver").style = 
-                "display: none; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24); border-radius: 2px;";
-    	}
+    	location.reload();
     }
 
     drawSprites();
