@@ -30,7 +30,7 @@
                 margin: 0px;
             }
             #score {
-                font-size: 8vh;
+                font-size: 10vh;
 
                 -webkit-user-select: none;
                     -moz-user-select: none;
@@ -38,31 +38,13 @@
                             user-select: none;
 
                 position: absolute;
-                margin: 16px;
-            }
-            #gameOver {
-                display: none;
-
-                -webkit-user-select: none;
-                    -moz-user-select: none;
-                        -o-user-select: none;
-                            user-select: none;
-
-                position: absolute;
-                top: calc(50vh - 137px);
-                width: calc(100vw - 32px);
+                margin-left: 50vw;
             }
         </style>
     </head>
 
-    <body class="theme-pink">
-        <!-- <h1 id="score">0</h1> -->
-
-        <div id="gameOver" class="card">
-            <h1>GAME OVER</h1>
-
-            <button id="restart" class="theme-purple">RESTART</button>
-        </div>
+    <body class="theme-dark">
+        <h1 id="score">0</h1>
     </body>
 </html>
 
