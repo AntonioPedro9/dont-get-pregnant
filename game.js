@@ -3,6 +3,7 @@ var w = window.innerWidth;
 var h = window.innerHeight;
 var ovule, sperm, cron, pontuation;
 
+// Reload the page if the orientation change:
 window.addEventListener("orientationchange", function() {
     location.reload();
 }, false);
