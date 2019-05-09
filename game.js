@@ -3,6 +3,10 @@ var w = window.innerWidth;
 var h = window.innerHeight;
 var ovule, sperm, cron, pontuation;
 
+window.addEventListener("orientationchange", function() {
+    location.reload();
+}, false);
+
 function setup() {
 
     createCanvas(w, h);
