@@ -82,7 +82,7 @@ function draw() {
 
     // Game over function trigger:
     if (sperm.overlap(ovule)) {
-        //gameOver();
+        gameOver();
     }
 
     drawSprites();
