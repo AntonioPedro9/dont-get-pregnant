@@ -18,7 +18,7 @@
         <!-- Scripts -->
         <script src="src/p5.min.js"></script>
         <script src="src/p5.play.js"></script>
-        <script src="game.js"></script>
+        <script async src="game.js"></script>
 
         <!-- Aperial Design -->
         <link rel="stylesheet" href="src/aperial.min.css">
@@ -28,14 +28,14 @@
             	font-family: Arial;
                 overflow: hidden;
                 margin: 0px;
-            }
-            #scoreBoard {
-                font-size: 10vh;
 
                 -webkit-user-select: none;
                     -moz-user-select: none;
                         -o-user-select: none;
                             user-select: none;
+            }
+            #scoreBoard {
+                font-size: 10vh;
 
                 position: absolute;
                 right: 0px;
@@ -45,7 +45,9 @@
     </head>
 
     <body class="theme-pink">
-        <h1 id="scoreBoard"></h1>
+        <div id="gameInterface">
+            <h1 id="scoreBoard"></h1>
+        </div>
     </body>
 </html>
 
