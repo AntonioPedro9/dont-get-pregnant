@@ -1,16 +1,22 @@
 // Global variables:
 var w = window.innerWidth;
 var h = window.innerHeight;
-var ovule, sperm, cron, pontuation;
+var canvas, ovule, sperm, cron, pontuation;
+
+// Reload the page if the window size change:
+window.addEventListener("resize", function() {
+    location.reload();
+});
 
 // Reload the page if the orientation change:
 window.addEventListener("orientationchange", function() {
     location.reload();
-}, false);
+});
 
 function setup() {
 
-    createCanvas(w, h);
+    canvas = createCanvas(w, h);
+    canvas.parent("gameInterface");
 
     // Ovule Object:
     ovule = createSprite(h/8, h/2, h/8, h/8);
@@ -51,10 +57,13 @@ function draw() {
         spermatozoom.life = 512;
 
         spermatozoom.draw = function() {
+
+            // Spermatozoom body:
             fill(255);
             noStroke();
             ellipse(0, 0, random(h/16, h/16 + 4), random(h/32, h/32 + 4));
 
+            // Spermatozoom tail:
             fill(255, 128);
             ellipse(h/16, 0, random(h/8, h/8 + 4), random(h/512, h/512 + 4));
         }
@@ -93,8 +102,6 @@ function gameOver() {
 
     ovule.remove();
     sperm.removeSprites();
-
-    alert("GAME OVER\nSCORE: " + pontuation);
 
     pontuation = 0;
     clearInterval(cron);
