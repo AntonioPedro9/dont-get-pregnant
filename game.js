@@ -3,6 +3,14 @@ var w = window.innerWidth;
 var h = window.innerHeight;
 var canvas, ovule, sperm, cron, pontuation;
 
+// Warning message about the device orientation:
+if (window.orientation == 0 || window.orientation == 180) {
+    document.getElementById("warning").style.display = "block";
+}
+else {
+    document.getElementById("warning").style.display = "none";
+}
+
 // Reload the page if the window size change:
 window.addEventListener("resize", function() {
     location.reload();
