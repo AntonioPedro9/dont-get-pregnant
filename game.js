@@ -1,7 +1,7 @@
 // Global variables:
 var w = window.innerWidth;
 var h = window.innerHeight;
-var canvas, ovule, sperm, cron, pontuation;
+var canvas, ovule, sperm, chronometer, pontuation;
 
 // Warning message about the device orientation:
 if (window.orientation == 0 || window.orientation == 180) {
@@ -47,7 +47,7 @@ function setup() {
     pontuation = 0;
     document.getElementById("scoreBoard").innerHTML = pontuation;
 
-    cron = setInterval( function() { 
+    chronometer = setInterval( function() { 
         pontuation = pontuation + 1; 
         document.getElementById("scoreBoard").innerHTML = pontuation;
     }, 1000);
@@ -112,7 +112,7 @@ function gameOver() {
     sperm.removeSprites();
 
     pontuation = 0;
-    clearInterval(cron);
+    clearInterval(chronometer);
 
     setup();
 }
