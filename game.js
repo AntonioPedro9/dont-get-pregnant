@@ -40,7 +40,6 @@ function setup() {
     ovule.velocity.y = 0;
     ovule.maxSpeed = 8;
 
-    // Sperm array:
     sperm = new Group();
 
     // Score functions:
@@ -76,7 +75,6 @@ function draw() {
             ellipse(h/16, 0, random(h/8, h/8 + 4), random(h/512, h/512 + 4));
         }
 
-        // Adding spermatozoom to sperm group:
         sperm.add(spermatozoom);
     }
 
@@ -93,7 +91,6 @@ function draw() {
     // Adding gravity acceleration:
     ovule.addSpeed(0.2, 90);
 
-    // Function to move the ovule:
     if (mouseIsPressed || keyIsPressed) {
         ovule.addSpeed(-0.8, 90);
     }
@@ -114,5 +111,6 @@ function gameOver() {
     pontuation = 0;
     clearInterval(chronometer);
 
+    // Restart the game:
     setup();
 }
