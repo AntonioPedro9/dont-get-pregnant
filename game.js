@@ -1,30 +1,31 @@
-// Global variables:
-var w = window.innerWidth;
-var h = window.innerHeight;
-var canvas, ovule, sperm, chronometer, pontuation;
+let w = window.innerWidth;
+let h = window.innerHeight;
+let warning = document.getElementById("warning");
+let scoreBoard = document.getElementById("scoreBoard");
+let canvas, ovule, sperm, chronometer, pontuation;
 
-// Warning message about the device orientation:
+// Device orientation warning:
 if (window.orientation == 0 || window.orientation == 180) {
-    document.getElementById("warning").style.display = "block";
+    warning.style.display = "block";
 }
 else {
-    document.getElementById("warning").style.display = "none";
+    warning.style.display = "none";
 }
 
 // Reload the page if the window size change:
-window.addEventListener("resize", function() {
+window.addEventListener("resize", () => {
     location.reload();
 });
 
 // Reload the page if the orientation change:
-window.addEventListener("orientationchange", function() {
+window.addEventListener("orientationchange", () => {
     location.reload();
 });
 
 function setup() {
 
     canvas = createCanvas(w, h);
-    canvas.parent("gameInterface");
+    canvas.parent("container");
 
     // Ovule Object:
     ovule = createSprite(h/8, h/2, h/8, h/8);
@@ -44,11 +45,11 @@ function setup() {
 
     // Score functions:
     pontuation = 0;
-    document.getElementById("scoreBoard").innerHTML = pontuation;
+    scoreBoard.innerHTML = pontuation;
 
-    chronometer = setInterval( function() { 
+    chronometer = setInterval( () => { 
         pontuation = pontuation + 1; 
-        document.getElementById("scoreBoard").innerHTML = pontuation;
+        scoreBoard.innerHTML = pontuation;
     }, 1000);
 }
 
@@ -59,9 +60,7 @@ function draw() {
     if (frameCount % 20 == 0) {
 
         // Spermatozoom Object:
-        var spermatozoom = createSprite(w, random(h), h/16, h/32);
-        spermatozoom.velocity.x = random(-4, -8);
-        spermatozoom.life = 512;
+        let spermatozoom = createSprite(w, random(h), h/16, h/32);
 
         spermatozoom.draw = function() {
 
@@ -74,6 +73,8 @@ function draw() {
             fill(255, 128);
             ellipse(h/16, 0, random(h/8, h/8 + 4), random(h/512, h/512 + 4));
         }
+        spermatozoom.velocity.x = random(-4, -8);
+        spermatozoom.life = 512;
 
         sperm.add(spermatozoom);
     }
@@ -91,6 +92,7 @@ function draw() {
     // Adding gravity acceleration:
     ovule.addSpeed(0.2, 90);
 
+    // Adding vertical acerleration
     if (mouseIsPressed || keyIsPressed) {
         ovule.addSpeed(-0.8, 90);
     }
