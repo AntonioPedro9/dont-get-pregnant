@@ -5,22 +5,14 @@ let scoreBoard = document.getElementById("scoreBoard");
 let canvas, ovule, sperm, chronometer, pontuation;
 
 // Device orientation warning:
-if (window.orientation == 0 || window.orientation == 180) {
-    warning.style.display = "block";
-}
-else {
-    warning.style.display = "none";
-}
+if (window.orientation == 0 || window.orientation == 180) { warning.style.display = "block"; }
+else { warning.style.display = "none"; }
 
 // Reload the page if the window size change:
-window.addEventListener("resize", () => {
-    location.reload();
-});
+window.addEventListener("resize", () => { location.reload(); });
 
 // Reload the page if the orientation change:
-window.addEventListener("orientationchange", () => {
-    location.reload();
-});
+window.addEventListener("orientationchange", () => { location.reload(); });
 
 function setup() {
 
