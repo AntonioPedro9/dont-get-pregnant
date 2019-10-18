@@ -103,7 +103,6 @@ function gameOver() {
     ovule.remove();
     sperm.removeSprites();
 
-    alert("Game over\nscore: " + pontuation);
     pontuation = 0;
     clearInterval(chronometer);
 
