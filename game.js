@@ -49,14 +49,6 @@ function draw() {
 
     background(233, 30, 99);
 
-    // Adding gravity acceleration:
-    ovule.addSpeed(0.2, 90);
-
-    // Adding vertical acerleration:
-    if (mouseIsPressed || keyIsPressed) {
-        ovule.addSpeed(-0.8, 90);
-    }
-
     // Creating spermatozoom:
     if (frameCount % 20 == 0) {
 
@@ -88,6 +80,14 @@ function draw() {
     else if (ovule.position.y <= 0 + h/16 + 4) {
         ovule.position.y = 0 + h/16 + 4;
         ovule.velocity.y = 0;
+    }
+
+    // Adding gravity acceleration:
+    ovule.addSpeed(0.2, 90);
+
+    // Adding vertical acerleration:
+    if (mouseIsPressed || keyIsPressed) {
+        ovule.addSpeed(-0.8, 90);
     }
 
     // Game over function trigger:
