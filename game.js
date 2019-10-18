@@ -2,7 +2,7 @@ let w = window.innerWidth;
 let h = window.innerHeight;
 let warning = document.getElementById("warning");
 let scoreBoard = document.getElementById("scoreBoard");
-let canvas, ovule, sperm, chronometer, pontuation;
+let canvas, ovule, sperm, spermatozoom, chronometer, pontuation;
 
 // Device orientation warning:
 if (window.orientation == 0 || window.orientation == 180) { warning.style.display = "block"; }
@@ -19,6 +19,8 @@ function setup() {
     canvas = createCanvas(w, h);
     canvas.parent("container");
 
+    sperm = new Group();
+
     // Ovule Object:
     ovule = createSprite(h/8, h/2, h/8, h/8);
 
@@ -32,8 +34,6 @@ function setup() {
     }
     ovule.velocity.y = 0;
     ovule.maxSpeed = 8;
-
-    sperm = new Group();
 
     // Score functions:
     pontuation = 0;
@@ -49,10 +49,19 @@ function draw() {
 
     background(233, 30, 99);
 
+    // Adding gravity acceleration:
+    ovule.addSpeed(0.2, 90);
+
+    // Adding vertical acerleration:
+    if (mouseIsPressed || keyIsPressed) {
+        ovule.addSpeed(-0.8, 90);
+    }
+
+    // Creating spermatozoom:
     if (frameCount % 20 == 0) {
 
         // Spermatozoom Object:
-        let spermatozoom = createSprite(w, random(h), h/16, h/32);
+        spermatozoom = createSprite(w, random(h), h/16, h/32);
 
         spermatozoom.draw = function() {
 
@@ -79,14 +88,6 @@ function draw() {
     else if (ovule.position.y <= 0 + h/16 + 4) {
         ovule.position.y = 0 + h/16 + 4;
         ovule.velocity.y = 0;
-    }
-
-    // Adding gravity acceleration:
-    ovule.addSpeed(0.2, 90);
-
-    // Adding vertical acerleration
-    if (mouseIsPressed || keyIsPressed) {
-        ovule.addSpeed(-0.8, 90);
     }
 
     // Game over function trigger:
