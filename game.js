@@ -30,7 +30,7 @@ function setup() {
         strokeWeight(h/64);
 
         ellipse(0, 0, random(h/8, h/8 + 4), random(h/8, h/8 + 4));
-        ellipse(0, 0, random(h/128, h/128 + 4), random(h/128, h/128 + 4));
+        ellipse(0, 0, random(h/64, h/64 + 4), random(h/64, h/64 + 4));
     }
     ovule.velocity.y = 0;
     ovule.maxSpeed = 8;
