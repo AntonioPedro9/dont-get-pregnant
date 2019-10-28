@@ -113,8 +113,8 @@ function gameRules() {
         ovule.velocity.y = 0;
     }
 
-    // move ovule up if the player presses any key
-    if (keyIsPressed) {
+    // move ovule up
+    if (keyIsPressed || mouseIsPressed) {
         ovule.addSpeed(-1.6, 90);
     }
 
