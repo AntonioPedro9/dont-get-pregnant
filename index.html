@@ -12,13 +12,13 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="white"/>
 
         <!-- Icons  -->
-        <link rel="icon" href="icon.png"/>
-        <link rel="apple-touch-icon" href="icon.png"/>
+        <link rel="icon" href="assets/icon.png"/>
+        <link rel="apple-touch-icon" href="assets/icon.png"/>
 
         <!-- Scripts -->
-        <script src="src/p5.min.js"></script>
-        <script src="src/p5.play.js"></script>
-        <script async src="game.js"></script>
+        <script src="assets/lib/p5.min.js"></script>
+        <script src="assets/lib/p5.play.js"></script>
+        <script async src="script.js"></script>
 
         <style>
             body {
@@ -28,12 +28,9 @@
                 background-color: rgb(233, 30, 99);
                 overflow: hidden;
 
-                -webkit-user-select: none;
-                -ms-user-select: none;
-                -moz-user-select: none;
-                -o-user-select: none;
                 user-select: none;
-
+            }
+            #container {
                 font-family: Arial;
                 font-size: 16px;
                 text-align: center;
@@ -56,10 +53,10 @@
         </style>
     </head>
 
-    <body class="theme-pink">
+    <body>
         <div id="container">
             <h1 id="scoreBoard"></h1>
-            <p id="warning">use landscape mode for a better experience</p>
+            <p id="warning">Change to landscape mode for a better experience</p>
         </div>
     </body>
 </html>
