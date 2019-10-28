@@ -34,7 +34,7 @@ function createOvule() {
     // the diameter is based on the screen height
     diameter = height/8;
 
-    ovule = createSprite(height/8, height/2, diameter);
+    ovule = createSprite(height/8, height/2, diameter, diameter);
 
     ovule.draw = () => {
         fill(255, 128);
@@ -44,6 +44,10 @@ function createOvule() {
         ellipse(0, 0, random(diameter, diameter + 4));
         ellipse(0, 0, random(diameter/8, diameter/8 + 4));
     }
+    
+    // set a circular collision zone
+    ovule.setCollider("circle", 0, 0, diameter/2);
+
     ovule.maxSpeed = 8;
 }
 
