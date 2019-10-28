@@ -56,7 +56,7 @@ function createOvule() {
 function createSpermatozoom() {
 
     // create a new spermatozoom based on the frame cout
-    if (frameCount % 20 == 0) {
+    if (frameCount % 10 == 0) {
 
         let diameterX = height/16;
         let diameterY = height/32;
