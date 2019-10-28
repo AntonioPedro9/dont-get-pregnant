@@ -44,7 +44,7 @@ function createOvule() {
         ellipse(0, 0, random(diameter, diameter + 4));
         ellipse(0, 0, random(diameter/8, diameter/8 + 4));
     }
-    
+
     // set a circular collision zone
     ovule.setCollider("circle", 0, 0, diameter/2);
 
@@ -56,7 +56,7 @@ function createOvule() {
 function createSpermatozoom() {
 
     // create a new spermatozoom based on the frame cout
-    if (frameCount % 10 == 0) {
+    if (frameCount % 20 == 0) {
 
         let diameterX = height/16;
         let diameterY = height/32;
@@ -105,7 +105,7 @@ function score() {
 function gameRules() {
 
     // aply gravity acceleration to the ovule
-    ovule.addSpeed(0.4, 90);
+    ovule.addSpeed(0.2, 90);
 
     // define screen limits
     if (ovule.position.y > height - diameter/2 - 4) {
@@ -119,7 +119,7 @@ function gameRules() {
 
     // move ovule up
     if (keyIsPressed || mouseIsPressed) {
-        ovule.addSpeed(-1.6, 90);
+        ovule.addSpeed(-0.8, 90);
     }
 
     // game over trigger
