@@ -1,4 +1,3 @@
-// getting the window size
 let width = window.innerWidth;
 let height = window.innerHeight;
 
@@ -47,6 +46,8 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
 
         // set a circular collision zone
         ovule.setCollider("circle", 0, 0, diameter/2);
+
+        ovule.debug = true;
     }
 
 
@@ -132,7 +133,7 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
             }
         }
 
-        // calls gameover if the spermatozoom collide with ovule
+        // calls gameover if a spermatozoom collide with the ovule
         sperm.overlap(ovule, gameOver);
     }
 
