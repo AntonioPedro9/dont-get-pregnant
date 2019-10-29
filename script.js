@@ -74,8 +74,8 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
         let speed = random(-width/256, -width/128);
         spermatozoom.velocity.x = speed;
 
-        // spermatozoom desapears after some time
-        spermatozoom.life = 512;
+        // delete spermatozoom after some time
+        spermatozoom.life = 256;
 
         // add spermatozoom to sperm array
         sperm.add(spermatozoom);
@@ -108,12 +108,14 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
             ovule.velocity.y = 0;
         }
 
-        let speed = height/(height/4);
+        let speed = 8;
 
         if (keyIsDown(UP_ARROW)) {
+            ovule.velocity.y = 0;
             ovule.velocity.y = -speed;
         }
         else if (keyIsDown(DOWN_ARROW)) {
+            ovule.velocity.y = 0;
             ovule.velocity.y = speed;
         }
 
@@ -167,7 +169,7 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
         gameRules();
 
         // create a new spermatozoom based on the frame cout
-        if (frameCount % 10 == 0) {
+        if (frameCount % 16 == 0) {
             createSpermatozoom();
         }
         drawSprites();
