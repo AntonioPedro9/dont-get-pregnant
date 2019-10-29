@@ -128,6 +128,8 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
 
 
     function gameOver() {
+
+        alert(`GAME OVER\nscore: ${pontuation}`);
         
         // remove all sprites
         ovule.remove();
