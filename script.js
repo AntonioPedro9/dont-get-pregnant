@@ -46,8 +46,6 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
 
         // set a circular collision zone
         ovule.setCollider("circle", 0, 0, diameter/2);
-
-        ovule.debug = true;
     }
 
 
