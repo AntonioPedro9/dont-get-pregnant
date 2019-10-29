@@ -5,7 +5,7 @@ let warning = document.getElementById("warning");
 let scoreBoard = document.getElementById("scoreBoard");
 
 // global variables
-let ovule, diameter, sperm, spermatozoom, chronometer, pontuation;
+let diameter, ovule, spermatozoom, sperm, pontuation, chronometer, tutorial;
 
 // reload the page if the window size change
 window.addEventListener("resize", () => location.reload());
@@ -15,6 +15,41 @@ window.addEventListener("orientationchange", () => location.reload());
 
 // show a warning if the orientation is portrait otherwise start the game
 if (window.orientation == 0 || window.orientation == 180) { warning.style.display = "block" } else {
+
+
+
+    function setup() {
+        createCanvas(width, height).parent("container");
+
+        // create a spermatozoom array
+        sperm = new Group();
+
+        // create a ovule
+        createOvule();
+
+        // display tutorial
+        showTutorial();
+
+        // start the score
+        score();
+    }
+
+
+
+    function draw() {
+        background(233, 30, 99);
+        
+        // check game rules every frame
+        gameRules();
+
+        // create a new spermatozoom based on the frame cout
+        if (frameCount % 16 == 0) {
+            createSpermatozoom();
+        }
+
+        // draw all sprites
+        drawSprites();
+    }
 
 
 
@@ -72,6 +107,41 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
 
 
 
+    function showTutorial() {
+
+        // tutorial is a object
+        tutorial = createSprite();
+
+        // if orientation is undefined its a computer
+        if (typeof window.orientation == 'undefined') { 
+            let message1 = "Arrow up";
+            let message2 =  "Arrow down";
+        }
+        // otherwise its a mobile device
+        else {
+            let message1 = "Up";
+            let message2 =  "Down";
+        }
+
+        tutorial.draw = () => {
+            stroke(255);
+            line(0, height/2, width, height/2);
+
+            fill(255);
+            noStroke();
+            textSize(16);
+            textAlign(CENTER, CENTER);
+            
+            text(message1, width/2, height/4);
+            text(message2, width/2, height/4 * 3);
+        }
+
+        // hide tutorial after some time
+        tutorial.life = 128;
+    }
+
+
+
     function score() {
         pontuation = 0;
         scoreBoard.innerHTML = pontuation;
@@ -122,7 +192,7 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
         }
 
         // calls gameover if a spermatozoom collide with the ovule
-        sperm.overlap(ovule, gameOver);
+        // sperm.overlap(ovule, gameOver);
     }
 
 
@@ -138,40 +208,8 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
         // reset the score
         pontuation = 0;
         clearInterval(chronometer);
-
+        
         // restart the game
         setup();
-    }
-
-
-
-    function setup() {
-        createCanvas(width, height).parent("container");
-
-        // create a spermatozoom array
-        sperm = new Group();
-
-        // create a ovule
-        createOvule();
-
-        // start the score
-        score();
-    }
-
-
-
-    function draw() {
-        background(233, 30, 99);
-        
-        // check game rules every frame
-        gameRules();
-
-        // create a new spermatozoom based on the frame cout
-        if (frameCount % 16 == 0) {
-            createSpermatozoom();
-        }
-
-        // draw all sprites
-        drawSprites();
     }
 }
