@@ -100,9 +100,6 @@ function score() {
 
 function gameRules() {
 
-    // aply gravity acceleration to the ovule
-    ovule.addSpeed(0.2, 90);
-
     // define screen limits
     if (ovule.position.y > height - diameter/2 - 4) {
         ovule.position.y = height - diameter/2 - 4;
@@ -113,15 +110,12 @@ function gameRules() {
         ovule.velocity.y = 0;
     }
 
-    // move ovule up
     if (keyIsPressed || mouseIsPressed) {
-        ovule.addSpeed(-0.8, 90);
+        
     }
 
-    // game over trigger
-    if (sperm.overlap(ovule)) {
-        gameOver();
-    }
+    // call gameover if the spermatozoom collide with ovule
+    sperm.overlap(ovule, gameOver);
 }
 
 
