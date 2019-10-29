@@ -6,7 +6,7 @@ let warning = document.getElementById("warning");
 let scoreBoard = document.getElementById("scoreBoard");
 
 // global variables
-let canvas, ovule, diameter, sperm, spermatozoom, chronometer, pontuation;
+let ovule, diameter, sperm, spermatozoom, chronometer, pontuation;
 
 
 
@@ -56,7 +56,7 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
         let diameterX = height/16;
         let diameterY = height/32;
 
-        spermatozoom = createSprite(width, random(height) /* places the spermatozoom on a rondom place at screen */, diameterX, diameterY);
+        spermatozoom = createSprite(width, random(height), diameterX, diameterY);
 
         spermatozoom.draw = () => {
 
@@ -108,27 +108,31 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
             ovule.velocity.y = 0;
         }
 
-        let speed = 8;
+        let speed = height/128;
 
+        // move ovule wuth keyboard
         if (keyIsDown(UP_ARROW)) {
             ovule.velocity.y = 0;
-            ovule.velocity.y = -speed;
+            ovule.velocity.y -= speed;
         }
         else if (keyIsDown(DOWN_ARROW)) {
             ovule.velocity.y = 0;
-            ovule.velocity.y = speed;
+            ovule.velocity.y += speed;
         }
 
+        // move ovule with clicks
         if (mouseIsPressed) {
-            if (mouseY >= height/2) {
-                ovule.velocity.y = speed;
+            if (mouseY <= height/2) {
+                ovule.velocity.y = 0;
+                ovule.velocity.y -= speed;
             }
             else {
-                ovule.velocity.y = -speed;
+                ovule.velocity.y = 0;
+                ovule.velocity.y += speed;
             }
         }
 
-        // call gameover if the spermatozoom collide with ovule
+        // calls gameover if the spermatozoom collide with ovule
         sperm.overlap(ovule, gameOver);
     }
 
@@ -151,13 +155,15 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
 
 
     function setup() {
-        canvas = createCanvas(width, height);
-        canvas.parent("container");
+        createCanvas(width, height).parent("container");
 
         // create a spermatozoom array
         sperm = new Group();
 
+        // create a ovule
         createOvule();
+
+        // start the score
         score();
     }
 
@@ -166,12 +172,15 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
     function draw() {
         background(233, 30, 99);
         
+        // check game rules every frame
         gameRules();
 
         // create a new spermatozoom based on the frame cout
         if (frameCount % 16 == 0) {
             createSpermatozoom();
         }
+
+        // draw all sprites
         drawSprites();
     }
 }
