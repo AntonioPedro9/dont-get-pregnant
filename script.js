@@ -112,15 +112,17 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
         // tutorial is a object
         tutorial = createSprite();
 
+        let message1, message2;
+
         // if orientation is undefined its a computer
         if (typeof window.orientation == 'undefined') { 
-            let message1 = "Arrow up";
-            let message2 =  "Arrow down";
+            message1 = "Arrow up";
+            message2 =  "Arrow down";
         }
         // otherwise its a mobile device
         else {
-            let message1 = "Up";
-            let message2 =  "Down";
+            message1 = "Up";
+            message2 =  "Down";
         }
 
         tutorial.draw = () => {
@@ -192,7 +194,7 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
         }
 
         // calls gameover if a spermatozoom collide with the ovule
-        // sperm.overlap(ovule, gameOver);
+        sperm.overlap(ovule, gameOver);
     }
 
 
