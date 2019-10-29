@@ -55,36 +55,32 @@ function createOvule() {
 
 function createSpermatozoom() {
 
-    // create a new spermatozoom based on the frame cout
-    if (frameCount % 10 == 0) {
+    let diameterX = height/16;
+    let diameterY = height/32;
 
-        let diameterX = height/16;
-        let diameterY = height/32;
+    spermatozoom = createSprite(width, random(height) /* places the spermatozoom on a rondom place at screen */, diameterX, diameterY);
 
-        spermatozoom = createSprite(width, random(height) /* places the spermatozoom on a rondom place at screen */, diameterX, diameterY);
+    spermatozoom.draw = () => {
 
-        spermatozoom.draw = () => {
+        // spermatozoom body
+        fill(255);
+        noStroke();
+        ellipse(0, 0, random(diameterX, diameterX + 4), random(diameterY, diameterY + 4));
 
-            // spermatozoom body
-            fill(255);
-            noStroke();
-            ellipse(0, 0, random(diameterX, diameterX + 4), random(diameterY, diameterY + 4));
-
-            // spermatozoom tail
-            fill(255, 128);
-            ellipse(height/16, 0, random(diameterX * 2, diameterX * 2 + 4), random(diameterY/16, diameterY/16 + 4));
-        }
-
-        // spermatozoom speed is based on the screen width
-        let speed = random(-width/256, -width/128);
-        spermatozoom.velocity.x = speed;
-
-        // spermatozoom desapears after some time
-        spermatozoom.life = 512;
-
-        // add spermatozoom to sperm array
-        sperm.add(spermatozoom);
+        // spermatozoom tail
+        fill(255, 128);
+        ellipse(height/16, 0, random(diameterX * 2, diameterX * 2 + 4), random(diameterY/16, diameterY/16 + 4));
     }
+
+    // spermatozoom speed is based on the screen width
+    let speed = random(-width/256, -width/128);
+    spermatozoom.velocity.x = speed;
+
+    // spermatozoom desapears after some time
+    spermatozoom.life = 512;
+
+    // add spermatozoom to sperm array
+    sperm.add(spermatozoom);
 }
 
 
@@ -161,9 +157,12 @@ function setup() {
 
 function draw() {
     background(233, 30, 99);
-
-    createSpermatozoom();
+    
     gameRules();
 
+    // create a new spermatozoom based on the frame cout
+    if (frameCount % 10 == 0) {
+        createSpermatozoom();
+    }
     drawSprites();
 }
