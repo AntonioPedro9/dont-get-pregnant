@@ -11,12 +11,12 @@ let diameter, ovule, spermatozoom, sperm, pontuation, chronometer, tutorial;
 window.addEventListener("resize", () => location.reload());
 
 // reload the page if the orientation change
-// window.addEventListener("orientationchange", () => location.reload());
+window.addEventListener("orientationchange", () => location.reload());
 
 // show a warning if the orientation is portrait otherwise start the game
 if (window.orientation == 0 || window.orientation == 180) { warning.style.display = "block" } else {
 
-    location.reload()
+
 
     function setup() {
         createCanvas(width, height).parent("container");
@@ -194,7 +194,7 @@ if (window.orientation == 0 || window.orientation == 180) { warning.style.displa
         }
 
         // calls gameover if a spermatozoom collide with the ovule
-        //sperm.overlap(ovule, gameOver);
+        sperm.overlap(ovule, gameOver);
     }
 
 
