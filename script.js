@@ -14,7 +14,7 @@ window.addEventListener("resize", () => location.reload());
 window.addEventListener("orientationchange", () => location.reload());
 
 // show a warning if the orientation is portrait otherwise start the game
-if (window.orientation == 0) { warning.style.display = "block" }
+if (window.orientation == 0) { warning.style.display = "block" } else {
 
 
 
@@ -214,3 +214,4 @@ if (window.orientation == 0) { warning.style.display = "block" }
         // restart the game
         setup();
     }
+}
