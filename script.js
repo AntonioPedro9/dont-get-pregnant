@@ -10,9 +10,6 @@ let diameter, ovule, spermatozoom, sperm, pontuation, chronometer, tutorial;
 // reload the page if the window size change
 window.addEventListener("resize", () => location.reload());
 
-// reload the page if the orientation change
-// window.addEventListener("orientationchange", () => location.reload());
-
 // show a warning if the orientation is portrait otherwise start the game
 if (window.orientation == 0) { warning.style.display = "block" } else {
 
@@ -171,7 +168,7 @@ if (window.orientation == 0) { warning.style.display = "block" } else {
 
         let speed = height/128;
 
-        // move ovule wuth keyboard
+        // move ovule with keyboard
         if (keyIsDown(UP_ARROW)) {
             ovule.velocity.y = 0;
             ovule.velocity.y -= speed;
