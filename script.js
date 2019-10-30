@@ -11,7 +11,7 @@ let diameter, ovule, spermatozoom, sperm, pontuation, chronometer, tutorial;
 window.addEventListener("resize", () => location.reload());
 
 // reload the page if the orientation change
-window.addEventListener("orientationchange", () => location.reload());
+// window.addEventListener("orientationchange", () => location.reload());
 
 // show a warning if the orientation is portrait otherwise start the game
 if (window.orientation == 0) { warning.style.display = "block" } else {
