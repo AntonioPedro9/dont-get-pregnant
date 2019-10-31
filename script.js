@@ -165,12 +165,12 @@ function score() {
 function gameRules() {
 
     // define screen limits
-    if (ovule.position.y > height - diameter/2 - 8) {
-        ovule.position.y = height - diameter/2 - 8;
+    if (ovule.position.y > height - diameter/2 - diameter/16) {
+        ovule.position.y = height - diameter/2 - diameter/16;
         ovule.velocity.y = 0;
     }
-    else if (ovule.position.y < 0 + diameter/2 + 8) {
-        ovule.position.y = 0 + diameter/2 + 8;
+    else if (ovule.position.y < 0 + diameter/2 + diameter/16) {
+        ovule.position.y = 0 + diameter/2 + diameter/16;
         ovule.velocity.y = 0;
     }
 
