@@ -1,7 +1,7 @@
 // global variables
 let width = window.innerWidth;
 let height = window.innerHeight;
-let move_sound, hit_sound, diameter, ovule, spermatozoom, sperm, pontuation = 0, chronometer, speed = height/128;
+let move_sound, hit_sound, diameter, ovule, spermatozoom, sperm, pontuation = 0, chronometer;
 
 // reload the page if the orientation changes
 window.addEventListener("orientationchange", () => location.reload());
@@ -143,7 +143,7 @@ function showTutorial() {
 
 
 function score() {
-
+    
     let score = createSprite();
 
     // pontuation is based on how many seconds you survive
@@ -182,6 +182,8 @@ function gameRules() {
 }
 
 
+
+let speed = height/128;
 
 // move ovule with clicks
 function touchStarted() {
