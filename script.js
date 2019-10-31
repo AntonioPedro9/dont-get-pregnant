@@ -3,6 +3,7 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 let diameter, ovule, spermatozoom, sperm, pontuation = 0, chronometer;
 
+// reload the page if the orientation changes
 window.addEventListener("orientationchange", () => location.reload());
 
 
