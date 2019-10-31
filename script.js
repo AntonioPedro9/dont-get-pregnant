@@ -3,6 +3,8 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 let diameter, ovule, spermatozoom, sperm, pontuation = 0, chronometer;
 
+window.addEventListener("orientationchange", () => location.reload());
+
 
 
 function setup() {
