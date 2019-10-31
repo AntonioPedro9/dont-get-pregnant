@@ -196,6 +196,9 @@ function touchStarted() {
         ovule.velocity.y += speed;
     }
 }
+function touchEnded() {
+    move_sound.stop();
+}
 
 
 
