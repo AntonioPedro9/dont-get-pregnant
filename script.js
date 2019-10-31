@@ -186,7 +186,7 @@ function gameRules() {
 let speed = height/128;
 
 // move ovule with clicks
-function touchStarted() {
+function mouseClicked() {
     move_sound.play();
 
     if (mouseY <= height/2) {
@@ -197,9 +197,6 @@ function touchStarted() {
         ovule.velocity.y = 0;
         ovule.velocity.y += speed;
     }
-}
-function touchEnded() {
-    move_sound.stop();
 }
 
 
