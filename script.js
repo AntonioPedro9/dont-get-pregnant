@@ -3,6 +3,8 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 let diameter, ovule, spermatozoom, sperm, pontuation = 0, chronometer;
 
+
+
 function setup() {
     createCanvas(width, height);
 
