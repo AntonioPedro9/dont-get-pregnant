@@ -63,8 +63,8 @@ function createOvule() {
         stroke(255);
         strokeWeight(diameter/8);
 
-        ellipse(0, 0, random(diameter, diameter + 4));
-        ellipse(0, 0, random(diameter/8, diameter/8 + 4));
+        ellipse(0, 0, diameter - ovule.getSpeed(), diameter + ovule.getSpeed());
+        ellipse(ovule.deltaX * 2, ovule.deltaY * 2, diameter/8, diameter/8);
     }
 
     // set a circular collision zone
