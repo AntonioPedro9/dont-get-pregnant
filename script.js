@@ -37,7 +37,7 @@ function draw() {
         createSpermatozoom();
     }
 
-    // draw all sprites
+    // draw all objects
     drawSprites();
 }
 
