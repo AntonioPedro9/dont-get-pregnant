@@ -1,15 +1,14 @@
 // global variables
 let width = window.innerWidth;
 let height = window.innerHeight;
-let move_sound, hit_sound, diameter, ovule, spermatozoom, sperm, pontuation = 0, chronometer;
+let diameter, ovule, spermatozoom, sperm, pontuation = 0, chronometer;
+
+// sounds 
+let move_sound = document.getElementById("move_sound");
+let hit_sound = document.getElementById("hit_sound");
 
 // reload the page if the orientation changes
 window.addEventListener("orientationchange", () => location.reload());
-
-function preload() {
-    //move_sound = loadSound("sounds/move_sound.wav");
-    //hit_sound = loadSound("sounds/hit_sound.wav");
-}
 
 
 
@@ -176,7 +175,7 @@ function gameRules() {
 
     // calls gameover if a spermatozoom collide with the ovule
     if (sperm.overlap(ovule)) {
-        //hit_sound.play();
+        hit_sound.play();
         gameOver();
     }
 }
@@ -187,7 +186,7 @@ let speed = height/128;
 
 // move ovule with clicks
 function mouseClicked() {
-    //move_sound.play();
+    move_sound.play();
 
     if (mouseY <= height/2) {
         ovule.velocity.y = 0;
@@ -204,13 +203,13 @@ function mouseClicked() {
 // move ovule with keyboard
 function keyPressed() {
     if (keyCode === UP_ARROW) {
-        //move_sound.play();
+        move_sound.play();
 
         ovule.velocity.y = 0;
         ovule.velocity.y -= speed;
     }
     else if (keyCode === DOWN_ARROW) {
-        //move_sound.play();
+        move_sound.play();
 
         ovule.velocity.y = 0;
         ovule.velocity.y += speed;
