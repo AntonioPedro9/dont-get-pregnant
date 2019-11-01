@@ -176,7 +176,7 @@ function gameRules() {
 
     // calls gameover if a spermatozoom collide with the ovule
     if (sperm.overlap(ovule)) {
-        hit_sound.play();
+        //hit_sound.play();
         gameOver();
     }
 }
