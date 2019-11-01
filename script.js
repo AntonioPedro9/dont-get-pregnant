@@ -210,7 +210,7 @@ function keyPressed() {
         ovule.velocity.y -= speed;
     }
     else if (keyCode === DOWN_ARROW) {
-        move_sound.play();
+        //move_sound.play();
 
         ovule.velocity.y = 0;
         ovule.velocity.y += speed;
