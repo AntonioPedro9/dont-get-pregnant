@@ -7,8 +7,8 @@ let move_sound, hit_sound, diameter, ovule, spermatozoom, sperm, pontuation = 0,
 window.addEventListener("orientationchange", () => location.reload());
 
 function preload() {
-    move_sound = loadSound("sounds/move_sound.wav");
-    hit_sound = loadSound("sounds/hit_sound.wav");
+    //move_sound = loadSound("sounds/move_sound.wav");
+    //hit_sound = loadSound("sounds/hit_sound.wav");
 }
 
 
@@ -17,7 +17,7 @@ function setup() {
     createCanvas(width, height);
 
     // move sound effect restarts after triggered
-    move_sound.playMode("restart");
+    //move_sound.playMode("restart");
 
     // create a spermatozoom array
     sperm = new Group();
@@ -187,7 +187,7 @@ let speed = height/128;
 
 // move ovule with clicks
 function mouseClicked() {
-    move_sound.play();
+    //move_sound.play();
 
     if (mouseY <= height/2) {
         ovule.velocity.y = 0;
@@ -204,7 +204,7 @@ function mouseClicked() {
 // move ovule with keyboard
 function keyPressed() {
     if (keyCode === UP_ARROW) {
-        move_sound.play();
+        //move_sound.play();
 
         ovule.velocity.y = 0;
         ovule.velocity.y -= speed;
