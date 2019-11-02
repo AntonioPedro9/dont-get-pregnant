@@ -7,6 +7,9 @@ let diameter, ovule, spermatozoom, sperm, pontuation = 0, chronometer;
 let move_sound = document.getElementById("move_sound");
 let hit_sound = document.getElementById("hit_sound");
 
+// reload the page if the window size changes
+window.addEventListener("size", () => location.reload());
+
 // reload the page if the orientation changes
 window.addEventListener("orientationchange", () => location.reload());
 
