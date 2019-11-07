@@ -18,9 +18,6 @@ window.addEventListener("orientationchange", () => location.reload());
 function setup() {
     createCanvas(width, height);
 
-    // move sound effect restarts after triggered
-    //move_sound.playMode("restart");
-
     // create a spermatozoom array
     sperm = new Group();
 
